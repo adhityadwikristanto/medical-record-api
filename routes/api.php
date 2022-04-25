@@ -67,6 +67,8 @@ Route::middleware(['auth:sanctum'])->group(function()
     Route::post('riwayatrekammedis/add', [RiwayatRekamMedisController::class, 'insert']);
     Route::put('riwayatrekammedis/{id}/update', [RiwayatRekamMedisController::class, 'update']);
     Route::post('riwayatrekammedis/{id}/riwayat', [RiwayatRekamMedisController::class, 'riwayat']);
+    // Route::post('riwayatrekammedis/riwayat', [RiwayatRekamMedisController::class, 'riwayat']);
+    Route::get('riwayatrekammedis/{id}/getfile', [RiwayatRekamMedisController::class, 'getfile']);
 
     Route::get('dokter', [DokterController::class, 'index']);
     Route::get('dokter/{id}/find', [DokterController::class, 'find']);
@@ -74,6 +76,7 @@ Route::middleware(['auth:sanctum'])->group(function()
     Route::put('dokter/{id}/update', [DokterController::class, 'update']);
 });
 
+Route::middleware('auth:sanctum')->post('/book/add', 'BookController@add');
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
